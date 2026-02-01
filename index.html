@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💝</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <div class="container">
+        <div class="card">
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXlqZDhndXhqMWtxdGp0cjBtZ3FqcWJrNGV6cGRzZHdqY3lkMXFwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" 
+                     alt="Cute cat" 
+                     id="gif"
+                     class="main-gif">
+            </div>
+            
+            <h1 class="question">Will You Be My Valentine?</h1>
+            
+            <div class="buttons-container">
+                <button class="btn btn-yes" id="yesBtn">Yes! 💕</button>
+                <button class="btn btn-no" id="noBtn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success page (hidden initially) -->
+    <div class="success-page" id="successPage">
+        <div class="confetti" id="confetti"></div>
+        <div class="success-content">
+            <h1 class="success-title">Yay! 🎉</h1>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnJxZGY4aGc2OG5zOWQ5ZmV4NWx0cjJqZTk0cXM2Y3c5YjA5cGQ5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UVk5yzljef0kGiayL1/giphy.gif" 
+                 alt="Happy celebration" 
+                 class="success-gif">
+            <p class="success-message">I knew you'd say yes! ❤️</p>
+            <p class="success-subtitle">Best Valentine's Day ever! 💝</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
