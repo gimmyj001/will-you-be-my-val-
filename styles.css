@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-pink: #ff6b9d;
+    --secondary-pink: #ffc0d3;
+    --accent-purple: #c44569;
+    --light-bg: #fff5f7;
+    --white: #ffffff;
+    --shadow: rgba(255, 107, 157, 0.3);
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe0ec 50%, #ffd4e5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating hearts background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0;
+    animation: float 8s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main container */
+.container {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: transparent;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.gif-container {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.main-gif {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(196, 69, 105, 0.3);
+    transition: transform 0.3s ease;
+    border: 4px solid var(--secondary-pink);
+}
+
+.main-gif:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.question {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: var(--accent-purple);
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(196, 69, 105, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, var(--primary-pink), var(--accent-purple));
+    color: white;
+}
+
+.btn-yes.bounce {
+    animation: heartbeat 0.5s ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.15);
+    }
+}
+
+.btn-yes:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
+}
+
+.btn-no {
+    background: white;
+    color: var(--accent-purple);
+    border: 3px solid var(--secondary-pink);
+}
+
+.btn-no:hover {
+    background: var(--light-bg);
+}
+
+/* Success page */
+.success-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.success-page.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.success-content {
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.success-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 5rem;
+    margin-bottom: 30px;
+    animation: bounceIn 0.8s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-gif {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.8s ease 0.3s backwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-message {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 20px 0;
+    animation: slideUp 0.8s ease 0.5s backwards;
+}
+
+.success-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    animation: slideUp 0.8s ease 0.7s backwards;
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    top: -10px;
+    opacity: 0;
+    animation: confettiFall 3s ease-in infinite;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .question {
+        font-size: 2rem;
+    }
+    
+    .main-gif {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+    
+    .success-title {
+        font-size: 3.5rem;
+    }
+    
+    .success-gif {
+        width: 250px;
+        height: 250px;
+    }
+}
